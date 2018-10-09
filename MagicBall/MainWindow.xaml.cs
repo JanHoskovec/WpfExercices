@@ -27,7 +27,10 @@ namespace MagicBall
 
         private void LaunchMagicBall(object sender, RoutedEventArgs e)
         {
-            reply.Text = Magic8Ball.GetOneRandom();
+            if (input.Text == "Ask your question here.")
+                MessageBox.Show("Please type in a question.");
+            else
+                reply.Text = Magic8Ball.GetOneRandom();
         }
     }
 }
