@@ -1,0 +1,22 @@
+﻿<Window x:Class="TestLayout.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestLayout"
+        mc:Ignorable="d"
+        Title="StackPanels" Height="450" Width="450">
+    <Grid>
+        <Border BorderBrush="Gray" BorderThickness="3" CornerRadius="10"
+           Margin="10"  VerticalAlignment="Stretch">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch"
+                   Margin="10" Background="Orange">
+                <Label HorizontalAlignment="Stretch">A button Back</Label>
+                <Button HorizontalAlignment="Stretch" Margin="10 10 10 0">Button1</Button>
+                <Button HorizontalAlignment="Stretch" Margin="10 10 10 0">Button2</Button>
+                <Button HorizontalAlignment="Stretch" Margin="10 10 10 0">Button3</Button>
+                <Button HorizontalAlignment="Center" Margin="10 10 10 0">Button4</Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
