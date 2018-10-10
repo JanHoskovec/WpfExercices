@@ -84,5 +84,40 @@ namespace Calculator
             text_first.Text = res[0];
             text_second.Text = res[1];
         }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+            {
+                ClickOnNumber(new Button { Content = (e.Key - Key.NumPad0).ToString() }, null);
+            }
+            else
+            {
+                switch(e.Key)
+                {
+                    case (Key.Add):
+                        ClickOnOperator(new Button { Content = "+" }, null);
+                        break;
+                    case (Key.Subtract):
+                        ClickOnOperator(new Button { Content = "-" }, null);
+                        break;
+                    case (Key.Multiply):
+                        ClickOnOperator(new Button { Content = "*" }, null);
+                        break;
+                    case (Key.Divide):
+                        ClickOnOperator(new Button { Content = "/" }, null);
+                        break;
+                    case (Key.Enter):
+                        ClickOnEquals(null, null);
+                        break;
+                    case (Key.Decimal):
+                        ClickOnPoint(null, null);
+                        break;
+                    case (Key.Delete):
+                        ClickOnClear(null, null);
+                        break;
+                }
+            }
+        }
     }
 }
