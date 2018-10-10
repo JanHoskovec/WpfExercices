@@ -60,5 +60,24 @@ namespace Calculator
 
             }
         }
+
+        private void ClickOnPoint(object sender, RoutedEventArgs e)
+        {
+            List<string> res = _core.Point();
+            text_first.Text = res[0];
+            text_second.Text = res[1];
+        }
+
+        private void ClickOnSign(object sender, RoutedEventArgs e)
+        {
+            List<string> res = _core.ChangeSign();
+            text_first.Text = res[0];
+            text_second.Text = res[1];
+        }
+
+        private void ClickOnPercent(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

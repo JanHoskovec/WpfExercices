@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="Calculator" Height="320" Width="260">
-
+        Title="Calculator" Height="380" Width="260">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="25" Background="LightGray">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <StackPanel Orientation="Vertical">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock x:Name="text_first" Width="100" FontSize="32" />
@@ -17,35 +29,43 @@
             <TextBlock Text="=" Width="50" FontSize="32" />
             <TextBlock x:Name="text_result" Width="200" FontSize="32" />
         </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Background="Cyan">
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="button_7" Click="ClickOnNumber" Height="50" Width="50" Content="7" FontSize="16" />
-                    <Button x:Name="button_8" Click="ClickOnNumber" Height="50" Width="50" Content="8" FontSize="16" />
-                    <Button x:Name="button_9" Click="ClickOnNumber" Height="50" Width="50" Content="9" FontSize="16" />
+                    <Button x:Name="button_clear" Style="{StaticResource RoundButton}" Click="ClickOnClear" Height="50" Width="50" Content="C" FontSize="16" />
+                    <Button x:Name="button_sign" Style="{StaticResource RoundButton}" Click="ClickOnSign" Height="50" Width="50" Content="±" FontSize="16" />
+                    <Button x:Name="button_percent" Style="{StaticResource RoundButton}" Click="ClickOnPercent" Height="50" Width="50" Content="%" FontSize="16" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="button_7" Style="{StaticResource RoundButton}" Click="ClickOnNumber" Height="50" Width="50" Content="7" FontSize="16" />
+                    <Button x:Name="button_8" Style="{StaticResource RoundButton}" Click="ClickOnNumber" Height="50" Width="50" Content="8" FontSize="16" />
+                    <Button x:Name="button_9" Style="{StaticResource RoundButton}" Click="ClickOnNumber" Height="50" Width="50" Content="9" FontSize="16" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="button_4" Click="ClickOnNumber" Height="50" Width="50" Content="4" FontSize="16" />
-                    <Button x:Name="button_5" Click="ClickOnNumber" Height="50" Width="50" Content="5" FontSize="16" />
-                    <Button x:Name="button_6" Click="ClickOnNumber" Height="50" Width="50" Content="6" FontSize="16" />
+                    <Button x:Name="button_4" Style="{StaticResource RoundButton}" Click="ClickOnNumber" Height="50" Width="50" Content="4" FontSize="16" />
+                    <Button x:Name="button_5" Style="{StaticResource RoundButton}" Click="ClickOnNumber" Height="50" Width="50" Content="5" FontSize="16" />
+                    <Button x:Name="button_6" Style="{StaticResource RoundButton}" Click="ClickOnNumber" Height="50" Width="50" Content="6" FontSize="16" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="button_1" Click="ClickOnNumber" Height="50" Width="50" Content="1" FontSize="16" />
-                    <Button x:Name="button_2" Click="ClickOnNumber" Height="50" Width="50" Content="2" FontSize="16" />
-                    <Button x:Name="button_3" Click="ClickOnNumber" Height="50" Width="50" Content="3" FontSize="16" />
+                    <Button x:Name="button_1" Style="{StaticResource RoundButton}" Click="ClickOnNumber" Height="50" Width="50" Content="1" FontSize="16" />
+                    <Button x:Name="button_2" Style="{StaticResource RoundButton}" Click="ClickOnNumber" Height="50" Width="50" Content="2" FontSize="16" />
+                    <Button x:Name="button_3" Style="{StaticResource RoundButton}" Click="ClickOnNumber" Height="50" Width="50" Content="3" FontSize="16" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="button_0" Click="ClickOnNumber" Height="50" Width="50" Content="0" FontSize="16" />
-                    <Button x:Name="button_clear" Click="ClickOnClear" Height="50" Width="50" Content="C" FontSize="16" />
-                    <Button x:Name="button_result" Click="ClickOnEquals" Height="50" Width="50" Content="=" FontSize="16" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button x:Name="button_0" Style="{StaticResource RoundButton}" Click="ClickOnNumber" Height="50" Width="100" Content="0" FontSize="16" />
+                    <Button x:Name="button_dot" Style="{StaticResource RoundButton}" Click="ClickOnPoint" Height="50" Width="50" Content="," FontSize="16"/>
+
                 </StackPanel>
             </StackPanel>
 
-            <StackPanel Orientation="Vertical" Margin="50 0 0 0">
-                <Button x:Name="button_plus" Click="ClickOnOperator" Height="50" Width="50" Content="+" FontSize="16" />
-                <Button x:Name="button_minus" Click="ClickOnOperator" Height="50" Width="50" Content="-" FontSize="16" />
-                <Button x:Name="button_times" Click="ClickOnOperator" Height="50" Width="50" Content="*" FontSize="16" />
-                <Button x:Name="button_div" Click="ClickOnOperator" Height="50" Width="50" Content="/" FontSize="16" />
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="button_plus" Style="{StaticResource RoundButton}" Click="ClickOnOperator" Height="50" Width="50" Content="+" FontSize="16" />
+                <Button x:Name="button_minus" Style="{StaticResource RoundButton}" Click="ClickOnOperator" Height="50" Width="50" Content="-" FontSize="16" />
+                <Button x:Name="button_times" Style="{StaticResource RoundButton}" Click="ClickOnOperator" Height="50" Width="50" Content="*" FontSize="16" />
+                <Button x:Name="button_div" Style="{StaticResource RoundButton}" Click="ClickOnOperator" Height="50" Width="50" Content="/" FontSize="16" />
+                <Button x:Name="button_result" Style="{StaticResource RoundButton}" Click="ClickOnEquals" Height="50" Width="50" Content="=" FontSize="16" />
             </StackPanel>
         </StackPanel>
     </StackPanel>
