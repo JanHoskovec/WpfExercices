@@ -8,108 +8,63 @@ namespace Calculator
 {
     public class Core
     {
-        private double? _first = null;
-        private double? _second = null;
-        private char? _operand = null;
-        private int? _decimals1 = null;
-        private int? _decimals2 = null;
-        private bool _negative1 = false;
-        private bool _negative2 = false;
-
-        private double AddDigitBefore(double x, int digit, bool negative)
-        {
-            if (negative)
-                x = 10 * x - digit;
-            else
-                x = 10 * x + digit;
-            return x;
-        }
-
-        private double AddDigitAfter(double x, int digit, int pos, bool negative)
-        {
-            if (negative)
-                x -= digit * Math.Pow(10, -pos);
-            else
-                x += digit * Math.Pow(10, -pos);
-            return x;
-        }
-
+        private Operand _first = new Operand();
+        private Operand _second = new Operand();
+        private char? _operator = null;
 
 
         public List<string> AddDigit(int digit)
         {
-            if (digit < 0 || digit > 9)
-                throw new ArgumentOutOfRangeException();
-            if (_operand == null)
+            if (_operator == null)
             {
-                if (_first == null)
-                    _first = 0;
-                if (_decimals1 != null)
-                {
-                    _decimals1++;
-                    _first = AddDigitAfter((double)_first, digit, (int)_decimals1, _negative1);
-                }
-                else
-                {
-                    _first = AddDigitBefore((double)_first, digit, _negative1);
-                }
+                if (_first.Value == null)
+                    _first.Initialize();
+                _first.AddDigit(digit);
             }
             else
             {
-                if (_second == null)
-                    _second = 0;
-                if (_decimals2 != null)
-                {
-                    _decimals2++;
-                    _second = AddDigitAfter((double)_second, digit, (int)_decimals2, _negative2);
-                }
-                else
-                {
-                    _second = AddDigitBefore((double)_second, digit, _negative2);
-                }
+                if (_second.Value == null)
+                    _second.Initialize();
+                _second.AddDigit(digit);
             }
-            return new List<string>() { _first.ToString(), _second.ToString() };
+            return new List<string>() { _first.Typeset(), _second.Typeset() };
         }
 
-        public char SetOperand(char operand)
+        public char SetOperator(char @operator)
         {
-            if (operand == '+' || operand == '-' || operand == '*' || operand == '/')
-                _operand = operand;
+            if (@operator == '+' || @operator == '-' || @operator == '*' || @operator == '/')
+                _operator = @operator;
             else
                 throw new ArgumentException();
-            return (char)_operand;
+            return (char)_operator;
         }
 
         public void Clear()
         {
-            _first = null;
-            _second = null;
-            _operand = null;
-            _decimals1 = null;
-            _decimals2 = null;
-            _negative1 = false;
-            _negative2 = false;
+            _first = new Operand();
+            _second = new Operand();
+            _operator = null;
         }
 
         public string Compute()
         {
             double res = 0;
 
-            switch (_operand)
+            switch (_operator)
             {
                 case ('+'):
-                    res = (double)(_first + _second);
+                    res = (double)(_first.Value + _second.Value);
                     break;
                 case ('-'):
-                    res = (double)(_first - _second);
+                    res = (double)(_first.Value - _second.Value);
                     break;
                 case ('*'):
-                    res = (double)(_first * _second);
+                    res = (double)(_first.Value * _second.Value);
                     break;
                 case ('/'):
-                    if (_second == 0)
+                    if (_second.Value == 0)
                         throw new DivideByZeroException();
-                    res = (double)(_first / _second);
+                    res = (double)(_first.Value / _second.Value);
                     break;
             }
             return res.ToString();
@@ -117,37 +72,30 @@ namespace Calculator
 
         public List<String> Point()
         {
-            string res1, res2;
-            if (_second == null)
+            if (_operator == null)
             {
-                _decimals1 = 0;
-                res1 = _first.ToString() + ",";
-                res2 = _second.ToString();
+                if (_first == null)
+                    _first = new Operand();
+                _first.SetPoint();
             }
             else
             {
-                _decimals2 = 0;
-                res1 = _first.ToString();
-                res2 = _second.ToString() + ",";
+                _second.SetPoint();
             }
-
-
-            return new List<string>() { res1, res2 };
+            return new List<string>() { _first.Typeset(), _second.Typeset() };
         }
 
         public List<string> ChangeSign()
         {
-            if (_operand == null)
+            if (_operator == null)
             {
-                _negative1 = !_negative1;
-                _first *= -1;
+                _first.ChangeSign();
             }
             else
             {
-                _negative2 = !_negative2;
-                _second *= -1;
+                _second.ChangeSign();
             }
-            return new List<string>() { _first.ToString(), _second.ToString() };
+            return new List<string>() { _first.Typeset(), _second.Typeset() };
         }
     }
 }

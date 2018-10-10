@@ -37,7 +37,7 @@ namespace Calculator
 
         private void ClickOnOperator(object sender, RoutedEventArgs e)
         {
-            text_operand.Text = _core.SetOperand((sender as Button).Content.ToString()[0]).ToString();
+            text_operand.Text = _core.SetOperator((sender as Button).Content.ToString()[0]).ToString();
         }
 
         private void ClickOnClear(object sender, RoutedEventArgs e)
