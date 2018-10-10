@@ -8,26 +8,27 @@ namespace Calculator
 {
     public class Core
     {
-        private double _first = 0;
-        private double _second = 0;
+        private double? _first = null;
+        private double? _second = null;
         private char? _operand = null;
 
-        public string AddDigit(int digit)
+        public List<string> AddDigit(int digit)
         {
             if (digit < 0 || digit > 9)
                 throw new ArgumentOutOfRangeException();
-            string result = "";
             if(_operand == null)
-            { 
+            {
+                if (_first == null)
+                    _first = 0;
                 _first = 10 * _first + digit;
-                result = _first.ToString();
             }
             else
             {
+                if (_second == null)
+                    _second = 0;
                 _second = 10 * _second + digit;
-                result = _second.ToString();
             }
-            return result;
+            return new List<string>() { _first.ToString(), _second.ToString() };
         }
 
         public char SetOperand(char operand)
@@ -37,6 +38,37 @@ namespace Calculator
             else
                 throw new ArgumentException();
             return (char)_operand;
+        }
+
+        public void Clear()
+        {
+            _first = null;
+            _second = null;
+            _operand = null;
+        }
+
+        public string Compute()
+        {
+            double res = 0;
+
+            switch (_operand)
+            {
+                case ('+'):
+                    res = (double)(_first + _second);
+                    break;
+                case ('-'):
+                    res = (double)(_first - _second);
+                    break;
+                case ('*'):
+                    res = (double)(_first * _second);
+                    break;
+                case ('/'):
+                    if (_second == 0)
+                        throw new DivideByZeroException();
+                    res = (double)(_first / _second);
+                    break;
+            }
+            return res.ToString();
         }
     }
 }

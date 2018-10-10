@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicBall", "MagicBall\Magi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{C1E92768-3EB1-4CCD-81E8-331A8E2C67D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLayout", "TestLayout\TestLayout.csproj", "{AF579B3B-EC39-4BA6-8748-82F8F6A32001}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C1E92768-3EB1-4CCD-81E8-331A8E2C67D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1E92768-3EB1-4CCD-81E8-331A8E2C67D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1E92768-3EB1-4CCD-81E8-331A8E2C67D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF579B3B-EC39-4BA6-8748-82F8F6A32001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF579B3B-EC39-4BA6-8748-82F8F6A32001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF579B3B-EC39-4BA6-8748-82F8F6A32001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF579B3B-EC39-4BA6-8748-82F8F6A32001}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,8 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Calculator" Height="320" Width="260">
+
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock x:Name="text_first" Width="100" FontSize="32" />
+            <TextBlock x:Name="text_operand" Width="50" FontSize="32" />
+            <TextBlock x:Name="text_second" Width="100" FontSize="32" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="=" Width="50" FontSize="32" />
+            <TextBlock x:Name="text_result" Width="200" FontSize="32" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Background="Cyan">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="button_7" Click="ClickOnNumber" Height="50" Width="50" Content="7" FontSize="16" />
+                    <Button x:Name="button_8" Click="ClickOnNumber" Height="50" Width="50" Content="8" FontSize="16" />
+                    <Button x:Name="button_9" Click="ClickOnNumber" Height="50" Width="50" Content="9" FontSize="16" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="button_4" Click="ClickOnNumber" Height="50" Width="50" Content="4" FontSize="16" />
+                    <Button x:Name="button_5" Click="ClickOnNumber" Height="50" Width="50" Content="5" FontSize="16" />
+                    <Button x:Name="button_6" Click="ClickOnNumber" Height="50" Width="50" Content="6" FontSize="16" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="button_1" Click="ClickOnNumber" Height="50" Width="50" Content="1" FontSize="16" />
+                    <Button x:Name="button_2" Click="ClickOnNumber" Height="50" Width="50" Content="2" FontSize="16" />
+                    <Button x:Name="button_3" Click="ClickOnNumber" Height="50" Width="50" Content="3" FontSize="16" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="button_0" Click="ClickOnNumber" Height="50" Width="50" Content="0" FontSize="16" />
+                    <Button x:Name="button_clear" Click="ClickOnClear" Height="50" Width="50" Content="C" FontSize="16" />
+                    <Button x:Name="button_result" Click="ClickOnEquals" Height="50" Width="50" Content="=" FontSize="16" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="50 0 0 0">
+                <Button x:Name="button_plus" Click="ClickOnOperator" Height="50" Width="50" Content="+" FontSize="16" />
+                <Button x:Name="button_minus" Click="ClickOnOperator" Height="50" Width="50" Content="-" FontSize="16" />
+                <Button x:Name="button_times" Click="ClickOnOperator" Height="50" Width="50" Content="*" FontSize="16" />
+                <Button x:Name="button_div" Click="ClickOnOperator" Height="50" Width="50" Content="/" FontSize="16" />
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+
 </Window>

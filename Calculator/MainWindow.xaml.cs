@@ -25,30 +25,40 @@ namespace Calculator
         public MainWindow()
         {
             InitializeComponent();
-
-            Grid _grid = new Grid();
-            this.Content = _grid;
         }
 
         private void ClickOnNumber(object sender, RoutedEventArgs e)
         {
             int.TryParse((sender as Button).Content.ToString(), out int i);
-            _core.AddDigit(i); //TODO what to do with the return ?
+            List<string> res = _core.AddDigit(i);
+            text_first.Text = res[0];
+            text_second.Text = res[1];
         }
 
         private void ClickOnOperator(object sender, RoutedEventArgs e)
         {
-            _core.SetOperand((sender as Button).Content.ToString()[0]);
+            text_operand.Text = _core.SetOperand((sender as Button).Content.ToString()[0]).ToString();
         }
 
         private void ClickOnClear(object sender, RoutedEventArgs e)
         {
-
+            _core.Clear();
+            text_first.Text = "";
+            text_second.Text = "";
+            text_operand.Text = "";
+            text_result.Text = "";
         }
 
         private void ClickOnEquals(object sender, RoutedEventArgs e)
         {
+            try
+            { 
+                text_result.Text = _core.Compute();
+            }
+            catch (DivideByZeroException)
+            {
 
+            }
         }
     }
 }
