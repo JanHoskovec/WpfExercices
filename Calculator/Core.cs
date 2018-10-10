@@ -53,20 +53,20 @@ namespace Calculator
             return new List<string>() { _first.Typeset(), _second.Typeset() };
         }
 
-        public List<string> SetOperator(char @operator)
+        public List<string> SetOperator(char _operator)
         {
-            if (@operator == '+' || @operator == '-' || @operator == '*' || @operator == '/')
+            if (_operator == '+' || _operator == '-' || _operator == '*' || _operator == '/')
             {
-                if(_operator != null)
+                if(this._operator != null)
                 {
                     _first.Value = ComputeInner();
                     _second = new Operand();
                 }
-                _operator = @operator;
+                this._operator = _operator;
             }
             else
                 throw new ArgumentException();
-            return new List<string>() { _first.Typeset(), _operator.ToString(), _second.Typeset() } ;
+            return new List<string>() { _first.Typeset(), this._operator.ToString(), _second.Typeset() } ;
         }
 
         public void Clear()
@@ -87,8 +87,6 @@ namespace Calculator
         {
             if (_operator == null)
             {
-                if (_first == null)
-                    _first = new Operand();
                 _first.SetPoint();
             }
             else
