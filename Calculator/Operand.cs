@@ -68,12 +68,15 @@ namespace Calculator
         {
             Value *= 0.01;
         }
-        
+
         public string Typeset()
         {
             string res = "";
             if (_decimals != null)
-                res = ((double)Value).ToString("F"+_decimals,CultureInfo.CreateSpecificCulture("fr-FR"));
+                if (_decimals == 0)
+                    res = ((double)Value).ToString() + ",";
+                else
+                    res = ((double)Value).ToString("F" + _decimals, CultureInfo.CreateSpecificCulture("fr-FR"));
             else if (Value != null)
                 res = Value.ToString();
             return res;
