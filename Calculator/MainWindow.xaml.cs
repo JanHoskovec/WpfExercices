@@ -37,7 +37,10 @@ namespace Calculator
 
         private void ClickOnOperator(object sender, RoutedEventArgs e)
         {
-            text_operand.Text = _core.SetOperator((sender as Button).Content.ToString()[0]).ToString();
+            List<string> res = _core.SetOperator((sender as Button).Content.ToString()[0]);
+            text_first.Text = res[0];
+            text_operand.Text = res[1];
+            text_second.Text = res[2];
         }
 
         private void ClickOnClear(object sender, RoutedEventArgs e)
@@ -77,7 +80,9 @@ namespace Calculator
 
         private void ClickOnPercent(object sender, RoutedEventArgs e)
         {
-
+            List<string> res = _core.Percent();
+            text_first.Text = res[0];
+            text_second.Text = res[1];
         }
     }
 }

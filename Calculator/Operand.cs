@@ -8,7 +8,7 @@ namespace Calculator
 {
     public class Operand
     {
-        public double? Value { get; private set; } = null;
+        public double? Value { get; set; } = null;
         private int? _decimals = null;
         private bool _negative = false;
 
@@ -61,6 +61,11 @@ namespace Calculator
         {
             _decimals = 0;
 
+        }
+
+        public void Percent()
+        {
+            Value *= 0.01;
         }
         
         public string Typeset()

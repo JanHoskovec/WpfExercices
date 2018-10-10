@@ -12,41 +12,7 @@ namespace Calculator
         private Operand _second = new Operand();
         private char? _operator = null;
 
-
-        public List<string> AddDigit(int digit)
-        {
-            if (_operator == null)
-            {
-                if (_first.Value == null)
-                    _first.Initialize();
-                _first.AddDigit(digit);
-            }
-            else
-            {
-                if (_second.Value == null)
-                    _second.Initialize();
-                _second.AddDigit(digit);
-            }
-            return new List<string>() { _first.Typeset(), _second.Typeset() };
-        }
-
-        public char SetOperator(char @operator)
-        {
-            if (@operator == '+' || @operator == '-' || @operator == '*' || @operator == '/')
-                _operator = @operator;
-            else
-                throw new ArgumentException();
-            return (char)_operator;
-        }
-
-        public void Clear()
-        {
-            _first = new Operand();
-            _second = new Operand();
-            _operator = null;
-        }
-
-        public string Compute()
+        private double ComputeInner()
         {
             double res = 0;
 
@@ -67,6 +33,53 @@ namespace Calculator
                     res = (double)(_first.Value / _second.Value);
                     break;
             }
+            return res;
+        }
+
+        public List<string> AddDigit(int digit)
+        {
+            if (_operator == null)
+            {
+                if (_first.Value == null)
+                    _first.Initialize();
+                _first.AddDigit(digit);
+            }
+            else
+            {
+                if (_second.Value == null)
+                    _second.Initialize();
+                _second.AddDigit(digit);
+            }
+            return new List<string>() { _first.Typeset(), _second.Typeset() };
+        }
+
+        public List<string> SetOperator(char @operator)
+        {
+            if (@operator == '+' || @operator == '-' || @operator == '*' || @operator == '/')
+            {
+                if(_operator != null)
+                {
+                    _first.Value = ComputeInner();
+                    _second = new Operand();
+                }
+                _operator = @operator;
+            }
+            else
+                throw new ArgumentException();
+            return new List<string>() { _first.Typeset(), _operator.ToString(), _second.Typeset() } ;
+        }
+
+        public void Clear()
+        {
+            _first = new Operand();
+            _second = new Operand();
+            _operator = null;
+        }
+
+        public string Compute()
+        {
+            double res = ComputeInner();
+            Clear();
             return res.ToString();
         }
 
@@ -94,6 +107,19 @@ namespace Calculator
             else
             {
                 _second.ChangeSign();
+            }
+            return new List<string>() { _first.Typeset(), _second.Typeset() };
+        }
+
+        public List<string> Percent()
+        {
+            if(_operator == null)
+            {
+                _first.Percent();
+            }
+            else
+            {
+                _second.Percent();
             }
             return new List<string>() { _first.Typeset(), _second.Typeset() };
         }

@@ -56,7 +56,6 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:Name="button_0" Style="{StaticResource RoundButton}" Click="ClickOnNumber" Height="50" Width="100" Content="0" FontSize="16" />
                     <Button x:Name="button_dot" Style="{StaticResource RoundButton}" Click="ClickOnPoint" Height="50" Width="50" Content="," FontSize="16"/>
-
                 </StackPanel>
             </StackPanel>
 
