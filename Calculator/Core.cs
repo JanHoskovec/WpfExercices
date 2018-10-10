@@ -32,6 +32,9 @@ namespace Calculator
                         throw new DivideByZeroException();
                     res = (double)(_first.Value / _second.Value);
                     break;
+                default: // here, the operator is not set yet = we only have the first operand set
+                    res = (double)_first.Value;
+                    break;
             }
             return res;
         }

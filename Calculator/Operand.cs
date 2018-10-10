@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,8 +72,8 @@ namespace Calculator
         public string Typeset()
         {
             string res = "";
-            if (_decimals == 0)
-                res = Value.ToString() + ",";
+            if (_decimals != null)
+                res = ((double)Value).ToString("F"+_decimals,CultureInfo.CreateSpecificCulture("fr-FR"));
             else if (Value != null)
                 res = Value.ToString();
             return res;
