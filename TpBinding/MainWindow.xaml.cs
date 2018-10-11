@@ -31,7 +31,6 @@ namespace TpBinding
         {
             InitializeComponent();
             saisie.DataContext = maPersonne;
-            //users.Add(new PersonData());
             myList.ItemsSource = users;
         }
 
