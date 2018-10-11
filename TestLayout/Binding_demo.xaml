@@ -10,15 +10,29 @@
 
     <StackPanel>
         <Slider Name="sliderFontSize" Margin="3" Maximum="400" Minimum="1"
-               Value="10" TickFrequency="19" TickPlacement="BottomRight" ></Slider>
+               Value="{Binding ElementName=laTaille, Path=Text}" TickFrequency="19" TickPlacement="BottomRight" ></Slider>
 
-        <TextBlock Margin="10" Text="Simple Text" Name="lblSampleText"
-                  FontSize="{Binding ElementName=sliderFontSize, Path=Value, Mode=TwoWay}"></TextBlock>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
             <Button Click="SetToSmall" HorizontalAlignment="Stretch" Margin="10 10 10 0">Set to small</Button>
             <Button Click="SetToNormal" Margin="10 10 10 0">Set to normal</Button>
             <Button Click="SetToLarge" Margin="10 10 10 0">Set to Large</Button>
         </StackPanel>
+
+        <TextBox Margin="10" x:Name="leTexte" FontSize="15" Text="Saisir le texte à afficher" />
+
+        <TextBox Margin="10" x:Name="laTaille" FontSize="15" Text="Taille(1-400)" />
+
+        <ListBox x:Name="lstColors" SelectedIndex="0" Margin="10">
+            <ListBoxItem Tag="Blue">Bleu</ListBoxItem>
+            <ListBoxItem Tag="Red">Rouge</ListBoxItem>
+            <ListBoxItem Tag="Green">Vert</ListBoxItem>
+        </ListBox>
+
+        <TextBox Margin="10" Name="lblSampleText"
+                  FontSize="{Binding ElementName=sliderFontSize, Path=Value, Mode=TwoWay}"
+                   Foreground="{Binding ElementName=lstColors, Path=SelectedValue.Tag}"
+                   Text="{Binding ElementName=leTexte, Path=Text, UpdateSourceTrigger=PropertyChanged}" />
+
     </StackPanel>
 </Page>

@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLayout", "TestLayout\TestLayout.csproj", "{AF579B3B-EC39-4BA6-8748-82F8F6A32001}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorClavier", "CalculatorClavier\CalculatorClavier.csproj", "{0BBD37D1-B04B-41E5-8D28-08B5B7356BB7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{AF579B3B-EC39-4BA6-8748-82F8F6A32001}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF579B3B-EC39-4BA6-8748-82F8F6A32001}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF579B3B-EC39-4BA6-8748-82F8F6A32001}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0BBD37D1-B04B-41E5-8D28-08B5B7356BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BBD37D1-B04B-41E5-8D28-08B5B7356BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BBD37D1-B04B-41E5-8D28-08B5B7356BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BBD37D1-B04B-41E5-8D28-08B5B7356BB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

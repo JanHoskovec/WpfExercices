@@ -1,0 +1,44 @@
+﻿<Page x:Class="TestLayout.Binding2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestLayout"
+      xmlns:model="clr-namespace:TestLayout.Models"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Binding2">
+
+    <Page.Resources>
+        <model:PersonData x:Key="UserData" />
+    </Page.Resources>
+    <StackPanel Orientation="Vertical">
+        <StackPanel Margin="10">
+            <TextBlock Text="{Binding Source={StaticResource UserData}, Path=Nom, StringFormat='Surname: {0}'}" />
+            <TextBlock Text="{Binding Source={StaticResource UserData}, Path=Prenom, StringFormat='Name:&#x09; {0}'}" />
+            <TextBlock Text="{Binding Source={StaticResource UserData}, Path=Age, StringFormat='Age:&#x09; {0}'}" />
+        </StackPanel>
+
+        <StackPanel Margin="10">
+            <TextBlock Text="{Binding Source={StaticResource UserData}, Path=MyString}"/>
+
+
+            <TextBlock>
+                <TextBlock.Text>
+                    <Binding Path="Title">
+                        <Binding.RelativeSource>
+                            <RelativeSource Mode="FindAncestor" AncestorType="{x:Type Page}" />
+                        </Binding.RelativeSource>
+                    </Binding>
+                </TextBlock.Text>
+            </TextBlock>
+
+            <TextBlock Height="20" Text="{Binding RelativeSource={RelativeSource Self}, Path=Height, StringFormat='My height: {0} pixels'}" />
+
+            <StackPanel DataContext="{x:Static SystemFonts.IconFontFamily}">
+                <TextBlock Text="{Binding Path=Source}" />
+                <TextBlock Text="{Binding Path=Baseline}" />
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Page>

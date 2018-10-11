@@ -54,6 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Binding2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Binding_demo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -65,6 +69,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Binding2.xaml.cs">
+      <DependentUpon>Binding2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Binding_demo.xaml.cs">
       <DependentUpon>Binding_demo.xaml</DependentUpon>
@@ -79,6 +86,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\PersonData.cs" />
     <Compile Include="Wrap.xaml.cs">
       <DependentUpon>Wrap.xaml</DependentUpon>
     </Compile>
