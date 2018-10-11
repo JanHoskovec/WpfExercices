@@ -12,16 +12,15 @@
     <Page.Resources>
         <model:PersonData x:Key="UserData" />
     </Page.Resources>
-    <StackPanel Orientation="Vertical">
+    <StackPanel Orientation="Vertical" DataContext="{StaticResource UserData}">
         <StackPanel Margin="10">
-            <TextBlock Text="{Binding Source={StaticResource UserData}, Path=Nom, StringFormat='Surname: {0}'}" />
-            <TextBlock Text="{Binding Source={StaticResource UserData}, Path=Prenom, StringFormat='Name:&#x09; {0}'}" />
-            <TextBlock Text="{Binding Source={StaticResource UserData}, Path=Age, StringFormat='Age:&#x09; {0}'}" />
+            <TextBlock Text="{Binding Nom, StringFormat='Surname: {0}'}" />
+            <TextBlock Text="{Binding Prenom, StringFormat='Name:&#x09; {0}'}" />
+            <TextBlock Text="{Binding Age, StringFormat='Age:&#x09; {0}'}" />
         </StackPanel>
 
         <StackPanel Margin="10">
-            <TextBlock Text="{Binding Source={StaticResource UserData}, Path=MyString}"/>
-
+            
 
             <TextBlock>
                 <TextBlock.Text>
@@ -35,10 +34,6 @@
 
             <TextBlock Height="20" Text="{Binding RelativeSource={RelativeSource Self}, Path=Height, StringFormat='My height: {0} pixels'}" />
 
-            <StackPanel DataContext="{x:Static SystemFonts.IconFontFamily}">
-                <TextBlock Text="{Binding Path=Source}" />
-                <TextBlock Text="{Binding Path=Baseline}" />
-            </StackPanel>
         </StackPanel>
     </StackPanel>
 </Page>

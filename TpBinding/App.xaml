@@ -1,8 +1,8 @@
-﻿<Application x:Class="TestLayout.App"
+﻿<Application x:Class="TpBinding.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:TestLayout"
-             StartupUri="Binding3.xaml">
+             xmlns:local="clr-namespace:TpBinding"
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>
