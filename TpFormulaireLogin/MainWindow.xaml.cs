@@ -35,7 +35,7 @@ namespace TpFormulaireLogin
             Login.BorderBrush = new SolidColorBrush(Colors.Black);
             Password.BorderBrush = new SolidColorBrush(Colors.Black);
 
-            _user.Password = ((PasswordBox)(sender as Button).CommandParameter).Password;
+            _user.Password = Password.Password;
             UserDataLayer _layer = new UserDataLayer();
             decimal? Id = _layer.SearchByLogin(_user.Login);
             if (Id.HasValue)
