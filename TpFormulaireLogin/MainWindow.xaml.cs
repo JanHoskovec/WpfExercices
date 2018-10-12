@@ -40,9 +40,9 @@ namespace TpFormulaireLogin
             decimal? Id = _layer.SearchByLogin(_user.Login);
             if (Id.HasValue)
             {
-                if (_layer.PasswordOK((int)Id, _user.Password))
+                if (_layer.PasswordOK(Id.Value, _user.Password))
                 { 
-                    _user = _layer.GetOne((int)Id);
+                    _user = _layer.GetOne(Id.Value);
                     MessageBox.Show($"Welcome aboard, {_user.Prenom} {_user.Nom}!");
                 }
                 else

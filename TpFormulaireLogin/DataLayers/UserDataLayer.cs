@@ -11,7 +11,7 @@ namespace TpFormulaireLogin.DataLayers
     public class UserDataLayer
     {
 
-        public User GetOne(int Id)
+        public User GetOne(decimal Id)
         {
             User Utilisateur = new User();
 
@@ -37,12 +37,12 @@ namespace TpFormulaireLogin.DataLayers
                     {
                         while (ReaderUser.Read())
                         {
-                            Utilisateur.Id = int.Parse(ReaderUser["Id"].ToString());
-                            Utilisateur.Nom = ReaderUser["Nom"].ToString();
-                            Utilisateur.Prenom = ReaderUser["Prenom"].ToString();
-                            Utilisateur.Login = ReaderUser["Login"].ToString();
-                            Utilisateur.Age = int.Parse(ReaderUser["Age"].ToString());
-                            Utilisateur.Password = ReaderUser["Password"].ToString();
+                            Utilisateur.Id = (decimal)ReaderUser["Id"];
+                            Utilisateur.Nom = (string)ReaderUser["Nom"];
+                            Utilisateur.Prenom = (string)ReaderUser["Prenom"];
+                            Utilisateur.Login = (string)ReaderUser["Login"];
+                            Utilisateur.Age = (int)ReaderUser["Age"];
+                            Utilisateur.Password = (string)ReaderUser["Password"];
                         }
                     }
                 }
@@ -59,15 +59,12 @@ namespace TpFormulaireLogin.DataLayers
             {
                 context.Open();
                 SqlCommand command = new SqlCommand("Select Id from [User] where Login = '" + login + "'", context);
-                
-                res = command.ExecuteScalar() as decimal?;
-                
+                res = command.ExecuteScalar() as decimal?; 
             }
-
             return res;
         }
 
-        public bool PasswordOK(int Id, string pwd)
+        public bool PasswordOK(decimal Id, string pwd)
         {
             User user = GetOne(Id);
             return (pwd == user.Password);
