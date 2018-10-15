@@ -10,10 +10,10 @@
         <Border BorderBrush="Black" BorderThickness="2" CornerRadius="20" >
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" x:Name="form">
                 <TextBlock Style="{StaticResource bigText}">Login:</TextBlock>
-                <TextBox x:Name="Login" Text="{Binding Login}" Style="{StaticResource myTextBox}" Width="200"/>
+                <TextBox x:Name="Login" Text="{Binding UserModelData.Login}" Style="{StaticResource myTextBox}" Width="200"/>
                 <TextBlock Style="{StaticResource bigText}">Password:</TextBlock>
                 <PasswordBox x:Name="Password" Style="{StaticResource myPassBox}" Width="200" />
-                <Button Click="ClickOnLogin" Content="Come on in!" Width="200"/>
+                <Button Command="{Binding Login}" CommandParameter="{Binding ElementName=Password}" Content="Come on in!" Width="200"/>
             </StackPanel>
         </Border>   
     </Grid>

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRessources", "TestResso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TpFormulaireLogin", "TpFormulaireLogin\TpFormulaireLogin.csproj", "{D27799F7-6579-4179-9403-9ECBED6AAADB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntroMVVM", "IntroMVVM\IntroMVVM.csproj", "{8523B7FB-1227-409B-ACBF-D55CE6371B3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{D27799F7-6579-4179-9403-9ECBED6AAADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D27799F7-6579-4179-9403-9ECBED6AAADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D27799F7-6579-4179-9403-9ECBED6AAADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8523B7FB-1227-409B-ACBF-D55CE6371B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8523B7FB-1227-409B-ACBF-D55CE6371B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8523B7FB-1227-409B-ACBF-D55CE6371B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8523B7FB-1227-409B-ACBF-D55CE6371B3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
